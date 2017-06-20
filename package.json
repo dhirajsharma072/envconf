@@ -1,0 +1,29 @@
+{
+  "name": "env-conf",
+  "version": "1.0.0",
+  "description": "This module is used to set enviroment variable from .env file and it will check enviroment variable whether they are set or not from .env.tpl",
+  "main": "./index.js",
+  "scripts": {
+    "test": "mocha  ./index.spec.js"
+  },
+  "keywords": [
+    "env",
+    "get-env",
+    "dotenv",
+    "env",
+    "manager",
+    "env",
+    "conf"
+  ],
+  "author": "Dhiraj",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "getenv": "^0.7.0"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "moch": "0.0.1",
+    "mocha": "^3.4.2"
+  }
+}
