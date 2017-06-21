@@ -18,12 +18,12 @@ describe('Environment variable configuration  ', () => {
   it('should able to typecast environment variable', () => {
     expect(typeof env.int('TIMEOUT')).to.be.equal('number');
   });
-  it('should throw error when "checkEnvironmentVariables" called and environment variables are not set and it is defined in ".env.tpl"', () => {
-    try {
-      envConf.checkEnvironmentVariables();
-    } catch (err) {
-      expect(err.message).to.be.equal('Please set environment variable PORT');
-    }
+  it('should throw error when "checkEnvironmentVariables" called and environment variables are not set and it is defined in ".env.tpl"', function (done) {
+    envConf.checkEnvironmentVariables(done)
+      .catch(error=> {
+        expect(error.message).to.be.equal('Please set environment variable PORT')
+      }).finally(()=> {
+      done()
+    });
   });
-
 });
