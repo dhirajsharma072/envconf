@@ -9,7 +9,7 @@ This library provide you facility to easily manage list of  environment variable
  The typecasting  methods are defined  in [getenv](https://github.com/ctavan/node-getenv) library.
  
 ```
-$ npm install env-conf
+$ npm install node-env-man
 ```
 ### Usage:
 
@@ -43,7 +43,7 @@ Following steps need to follow before using this library:
 Please require this library as early as possible to get list of environment variables from .env file
 
 ```
-var env = require('env-conf');
+var env = require('node-env-man');
 ```
 
 ***To get list of environment variable***

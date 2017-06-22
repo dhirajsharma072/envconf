@@ -1,7 +1,12 @@
 {
-  "name": "env-conf",
+  "name": "node-env-man",
   "version": "1.0.0",
   "description": "This module is used to set enviroment variable from .env file and it will check enviroment variable whether they are set or not from .env.tpl",
+  "homepage": "https://github.com/dhirajsharma072/envconf",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dhirajsharma072/envconf.git"
+  },
   "main": "./index.js",
   "scripts": {
     "test": "mocha  ./index.spec.js"
