@@ -1,7 +1,7 @@
 # Environment configuration library
 ##Features:
- 1. It will set environment variable from .env file which will be at the project base folder 
- 2. It will check environment variable  from ".env.tpl" file whether environment variable is declared or not in .env file 
+ 1. It will set environment variable from .env file which will be at the project root folder 
+ 2. It will check environment variable  from ".env.tpl" file whether environment variable is declared or not in ".env" file 
  3. It will provide typecasting of environment variables
   
 ## Getting started
@@ -15,7 +15,8 @@ $ npm install node-env-man
 
 Following steps need to follow before using this library:
 1. Create ".env" file on project root directory and define your environment variable ex. development,production,test,uat etc.
-   ".env"file
+  
+  Contents of ***.env*** file
    ```
      PORT=8080
      NODE_ENV=developemnt
@@ -23,10 +24,10 @@ Following steps need to follow before using this library:
 
 2. Create ".env.tpl" file on project directory which contains template of all environment variables. 
    This file will be shared among team to check list of environment variables and corresponding sample value.
+   
 
-
-
-".env"file
+ Contents of ***.env.tpl***  file
+ 
    ```
      #define your application port number
      PORT=<Port number ex:3002,8080>
