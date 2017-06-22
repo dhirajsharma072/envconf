@@ -1,16 +1,17 @@
-# environment configuration library
-Features:
+# Environment configuration library
+##Features:
  1. It will set environment variable from .env file which will be at the project base folder 
  2. It will check environment variable  from ".env.tpl" file whether environment variable is declared or not in .env file 
  3. It will provide typecasting of environment variables
   
 ## Getting started
-This library provide you facility to easily manage list of  environment variables. This library is based on ***getenv*** and ***dotenv*** libraries.
-For more details about these libraries you can visit here [getenv](https://github.com/ctavan/node-getenv), [dotenv](https://github.com/motdotla/dotenv) 
+This library provide you facility to easily manage list of  environment variables.
+ The typecasting  methods are defined  in [getenv](https://github.com/ctavan/node-getenv) library.
+ 
 ```
 $ npm install env-conf
 ```
-### Example:
+### Usage:
 
 Following steps need to follow before using this library:
 1. Create ".env" file on project root directory and define your environment variable ex. development,production,test,uat etc.
@@ -20,7 +21,9 @@ Following steps need to follow before using this library:
      NODE_ENV=developemnt
    ```
 
-2. Create ".env.tpl" file on project directory which contains template of all environment variables
+2. Create ".env.tpl" file on project directory which contains template of all environment variables. 
+   This file will be shared among team to check list of environment variables and corresponding sample value.
+
 
 
 ".env"file
@@ -35,24 +38,34 @@ Following steps need to follow before using this library:
 3. Define your environment variable in both files ".env" and  ".env.tpl". ".env" file will be used for local purpose.
  
  
+###Example
+
+Please require this library as early as possible to get list of environment variables from .env file
+
 ```
-//Please require this library as early as possible to get list of environment
-//variables from .env file
-
 var env = require('env-conf');
+```
 
-//To get list of enviornment variable
+***To get list of environment variable***
+```
 var env = envConf.getEnv();
 
 //To access enviorment variable 
  console.log("Port : ",env.string('PORT'));
+ ```
  
- // check whether all  enviorment variables are declared or not 
-   env.checkEnvironmentVariables();
 
-//Easy to typecast environment variable
- var port = env.int('PORT')
+***check whether all environment variables are declared or not in ".env" file*** :
 
+ If environment variables are defined in ".env.tpl" but missing in ".env" file  then it will throw error otherwise it will return empty [];
+  
+   ```
+    env.checkEnvironmentVariables();
+//sample error:  "Please set environment variable PORT"
+```
+***Easy to typecast environment variable***
+ ```
+ var port = env.int('PORT');
 ```
 
 
