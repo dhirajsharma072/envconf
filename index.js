@@ -8,7 +8,7 @@ const checkEnvironmentVariables = function () {
   return readFile(__dirname + '/.env.tpl', 'utf8')
     .then(function (file) {
       var envList = file && file.split(/(?:\n|\r\n|\r)/)
-          .filter((p) => !(p.match(/^(\/\/ |\/\*|#)/)) && (p.indexOf('=') >= 0))
+          .filter((p) => !(p.match(/([\/\/|\/\*|\#].*)/)) && (p.indexOf('=') >= 0))
           .map(line=>line.split('=')[0].trim())
           .filter(envVar => !process.env[envVar]);
       if (envList && envList.length > 0) {
@@ -25,3 +25,4 @@ module.exports = {
   checkEnvironmentVariables: checkEnvironmentVariables,
   getEnv: getenv
 };
+

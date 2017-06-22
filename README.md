@@ -56,7 +56,7 @@ var env = envConf.getEnv();
  ```
  
 
-***check whether all environment variables are declared or not in ".env" file*** :
+***check whether all environment variables are declared  in .env file or using process.env :
 
  If environment variables are defined in ".env.tpl" but missing in ".env" file  then it will throw error otherwise it will return empty [];
   

@@ -5,6 +5,8 @@ const envConf = require('./index');
 describe('Environment variable configuration  ', () => {
   let env = {};
   before(()=> {
+    process.env.PORT=2323;
+    process.env.SCHEDULER_RULE='1 * * * * *';
     env = envConf.getEnv();
   });
   it('should able to set environment variable if its declared into ".env" file ', () => {
