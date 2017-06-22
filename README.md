@@ -1,13 +1,61 @@
 # environment configuration library
-This module is responsible for following tasks:
+Features:
  1. It will set environment variable from .env file which will be at the project base folder 
  2. It will check environment variable  from ".env.tpl" file whether environment variable is declared or not in .env file 
  3. It will provide typecasting of environment variables
   
 ## Getting started
+This library provide you facility to easily manage list of  environment variables. This library is based on ***getenv*** and ***dotenv*** libraries.
+For more details about these libraries you can visit here [getenv](https://github.com/ctavan/node-getenv), [dotenv](https://github.com/motdotla/dotenv) 
 ```
 $ npm install env-conf
 ```
+### Example:
+
+Following steps need to follow before using this library:
+1. Create ".env" file on project root directory and define your environment variable ex. development,production,test,uat etc.
+   ".env"file
+   ```
+     PORT=8080
+     NODE_ENV=developemnt
+   ```
+
+2. Create ".env.tpl" file on project directory which contains template of all environment variables
+
+
+".env"file
+   ```
+     #define your application port number
+     PORT=<Port number ex:3002,8080>
+     #define your application node environment 
+     NODE_ENV=<sample value "developemnt","test","production">
+   ```
+
+
+3. Define your environment variable in both files ".env" and  ".env.tpl". ".env" file will be used for local purpose.
+ 
+ 
+```
+//Please require this library as early as possible to get list of environment
+//variables from .env file
+
+var env = require('env-conf');
+
+//To get list of enviornment variable
+var env = envConf.getEnv();
+
+//To access enviorment variable 
+ console.log("Port : ",env.string('PORT'));
+ 
+ // check whether all  enviorment variables are declared or not 
+   env.checkEnvironmentVariables();
+
+//Easy to typecast environment variable
+ var port = env.int('PORT')
+
+```
+
+
 ### Test
 
 ```
