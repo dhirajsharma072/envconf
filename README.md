@@ -49,10 +49,11 @@ var env = require('node-env-man');
 
 ***To get list of environment variable***
 ```
-var env = envConf.getEnv();
+var env = require('node-env-man')
+var envList = env.getEnv();
 
 //To access enviorment variable 
- console.log("Port : ",env.string('PORT'));
+ console.log("Port : ",envList.string('PORT'));
  ```
  
 
@@ -61,7 +62,9 @@ var env = envConf.getEnv();
  If environment variables are defined in ".env.tpl" but missing in ".env" file  then it will throw error otherwise it will return empty [];
   
    ```
+    var env = require('node-env-man');
     env.checkEnvironmentVariables();
+
 //sample error:  "Please set environment variable PORT"
 ```
 ***Easy to typecast environment variable***
